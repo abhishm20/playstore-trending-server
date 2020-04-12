@@ -24,6 +24,7 @@ class AppScraper(object):
             self.browser = webdriver.Chrome(os.path.join(RESOURCE_DIR, "chromedriver"), options=options)
         else:
             self.browser = webdriver.Chrome(options=options)
+        self.browser.set_window_size(1400, 900)
 
     def scrap_detail(self, package_name):
         data = dict()
