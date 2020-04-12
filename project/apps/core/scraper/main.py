@@ -6,6 +6,8 @@ from selenium import webdriver
 
 from core import utility
 from settings import RESOURCE_DIR, app_logger
+from settings import DEBUG
+from selenium.webdriver.chrome.options import Options
 
 CONFIG_FILE = os.path.join(pathlib.Path(__file__).parent.absolute(), "config.json")
 CONFIG_DATA = json.load(open(CONFIG_FILE, 'r'))
@@ -13,7 +15,12 @@ CONFIG_DATA = json.load(open(CONFIG_FILE, 'r'))
 
 class AppScraper(object):
     def __init__(self):
-        self.browser = webdriver.Chrome(os.path.join(RESOURCE_DIR, "chromedriver"))
+        options = Options()
+        options.headless = True
+        if DEBUG:
+            self.browser = webdriver.Chrome(os.path.join(RESOURCE_DIR, "chromedriver"), options=options)
+        else:
+            self.browser = webdriver.Chrome(options=options)
 
     def scrap_detail(self, package_name):
         data = dict()
