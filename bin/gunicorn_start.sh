@@ -1,7 +1,7 @@
 #!/bin/bash
 
 NAME="api_server"                                  # Name of the application
-VIRTUALENV=/home/ubuntu/api_server/venv/bin/             # Django project directory
+VIRTUALENV=/home/ubuntu/api_server/.env/bin/             # Django project directory
 PROJ_DIRECTORY=/home/ubuntu/api_server/             # Django project directory
 SOCKFILE=/home/ubuntu/gunicorn.sock  # we will communicte using this unix socket
 USER=ubuntu                                        # the user to run as
@@ -30,7 +30,7 @@ test -d $RUNDIR || mkdir -p $RUNDIR
 
 # Start your Django Unicorn
 # Programs meant to be run under supervisor should not daemonize themselves (do not use --daemon)
-exec /home/ubuntu/api_server/venv/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
+exec /home/ubuntu/api_server/.env/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
   --name $NAME \
   --workers $NUM_WORKERS \
   --max-requests $MAX_REQUEST \
