@@ -42,11 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.sessions',
     'django.contrib.staticfiles',
-    'django_extensions'
+    'django_extensions',
 ]
 
 THIRD_PARTY_APPS = [
     'rest_framework',
+    'corsheaders',
     'django_mysql',
 ]
 
@@ -60,6 +61,7 @@ LOCKDOWN_ADMIN = True
 
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -152,6 +154,7 @@ DATA_UPLOAD_MAX_MEMORY_SIZE = 104857600  # 100 MB
 
 # Cors Settings
 CORS_ORIGIN_ALLOW_ALL = True
+
 
 SECURE_PROXY_SSL_HEADER = ('SERVER_NAME', 'mailer.finshots.in')
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 10240

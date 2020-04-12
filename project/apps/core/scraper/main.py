@@ -77,7 +77,7 @@ class AppScraper(object):
         }
         self.browser.get(CONFIG_DATA['PLAYSTORE_LIST_PAGE_LINK'])
 
-        for category in ['TOP_FREE_APP', 'TOP_PAID_APP', 'TOP_GROSSING_APP',
+        for category in ['TOP_FREE_APPS', 'TOP_PAID_APPS', 'TOP_GROSSING_APPS',
                          'TOP_FREE_GAMES', 'TOP_PAID_GAMES', 'TOP_GROSSING_GAMES']:
             try:
                 category_div = self.browser.find_element_by_css_selector(CONFIG_DATA[f"LIST_{category}"])

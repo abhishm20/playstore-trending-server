@@ -8,6 +8,7 @@ from django.db import models
 # Customr Model just for testing
 class SystemVariable(models.Model):
     is_scraping_running = models.BooleanField(default=False)
+    error_while_scraping = models.TextField(null=True, blank=True)
 
     class Meta:
         verbose_name = "System Variable"
@@ -33,7 +34,7 @@ class Package(models.Model):
     class Meta:
         verbose_name = "Package"
         verbose_name_plural = "Packages"
-        ordering = ('created_at',)
+        ordering = ('-created_at',)
 
     def __repr__(self):
         return f"{Package.__name__} <{self.package_name}>"
@@ -41,7 +42,6 @@ class Package(models.Model):
 
 class PackageAttachment(models.Model):
     created_at = models.DateTimeField(null=True, blank=True, default=utility.get_current_time)
-    updated_at = models.DateTimeField(null=True, blank=True)
     package = models.ForeignKey(Package, on_delete=models.CASCADE, related_name='attachments', related_query_name='attachment')
     url = models.TextField()
     type = models.CharField(max_length=20, choices=(('image', 'Image'), ('video', 'Video')))
@@ -49,7 +49,7 @@ class PackageAttachment(models.Model):
     class Meta:
         verbose_name = "Package Attachment"
         verbose_name_plural = "Package Attachments"
-        ordering = ('-created_at',)
+        ordering = ('created_at',)
 
     def __repr__(self):
         return f"{PackageAttachment.__name__} <{self.package}>"

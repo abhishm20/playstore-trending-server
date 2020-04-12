@@ -7,10 +7,10 @@
   "DETAIL_RATING": "#fcxH9b > div.WpDbMd > c-wiz.zQTmif.SSPGKf.I3xX3c.drrice > div > div.ZfcPIb > div > div.JNury.Ekdcne > div > c-wiz:nth-child(1) > c-wiz:nth-child(1) > div > div.D0ZKYe > div > div.sIskre > div > div.dNLKff > c-wiz > div > div",
 
   "PLAYSTORE_LIST_PAGE_LINK": "https://play.google.com/store/apps/top",
-  "LIST_TOP_FREE_APP": "#fcxH9b > div.WpDbMd > c-wiz > div > c-wiz > div > div > c-wiz > c-wiz:nth-child(1) > c-wiz > div > div.ZmHEEd.fLyRuc",
-  "LIST_TOP_PAID_APP": "#fcxH9b > div.WpDbMd > c-wiz > div > c-wiz > div > div > c-wiz > c-wiz:nth-child(2) > c-wiz > div > div.ZmHEEd.fLyRuc",
-  "LIST_TOP_GROSSING_APP": "#fcxH9b > div.WpDbMd > c-wiz > div > c-wiz > div > div > c-wiz > c-wiz:nth-child(3) > c-wiz > div > div.ZmHEEd.fLyRuc",
-  "LIST_TOP_FREE_GAMES": "#fcxH9b > div.WpDbMd > c-wiz > div > c-wiz > div > div > c-wiz > c-wiz:nth-child(1) > c-wiz > div > div.ZmHEEd.fLyRuc",
-  "LIST_TOP_PAID_GAMES": "#fcxH9b > div.WpDbMd > c-wiz > div > c-wiz > div > div > c-wiz > c-wiz:nth-child(1) > c-wiz > div > div.ZmHEEd.fLyRuc",
-  "LIST_TOP_GROSSING_GAMES": "#fcxH9b > div.WpDbMd > c-wiz > div > c-wiz > div > div > c-wiz > c-wiz:nth-child(1) > c-wiz > div > div.ZmHEEd.fLyRuc"
+  "LIST_TOP_FREE_APPS": "#fcxH9b > div.WpDbMd > c-wiz > div > c-wiz > div > div > c-wiz > c-wiz:nth-child(1) > c-wiz > div > div.ZmHEEd.fLyRuc",
+  "LIST_TOP_PAID_APPS": "#fcxH9b > div.WpDbMd > c-wiz > div > c-wiz > div > div > c-wiz > c-wiz:nth-child(2) > c-wiz > div > div.ZmHEEd.fLyRuc",
+  "LIST_TOP_GROSSING_APPS": "#fcxH9b > div.WpDbMd > c-wiz > div > c-wiz > div > div > c-wiz > c-wiz:nth-child(3) > c-wiz > div > div.ZmHEEd.fLyRuc",
+  "LIST_TOP_FREE_GAMES": "#fcxH9b > div.WpDbMd > c-wiz > div > c-wiz > div > div > c-wiz > c-wiz:nth-child(4) > c-wiz > div > div.ZmHEEd.fLyRuc",
+  "LIST_TOP_PAID_GAMES": "#fcxH9b > div.WpDbMd > c-wiz > div > c-wiz > div > div > c-wiz > c-wiz:nth-child(5) > c-wiz > div > div.ZmHEEd.fLyRuc",
+  "LIST_TOP_GROSSING_GAMES": "#fcxH9b > div.WpDbMd > c-wiz > div > c-wiz > div > div > c-wiz > c-wiz:nth-child(6) > c-wiz > div > div.ZmHEEd.fLyRuc"
 }

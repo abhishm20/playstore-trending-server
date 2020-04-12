@@ -12,20 +12,22 @@ from core.serializers import PackageSerializer, PackageAttachmentSerializer
 @celery_app.task(name="scrap_app_detail_task", queue="default_queue")
 def scrap_app_detail_task(package_names):
     scraper = AppScraper()
-    for package_name in package_names:
-        data = scraper.scrap_detail(package_name)
-        attachments = data.get('attachments', [])
-        instance = Package.objects.get(package_name=package_name)
-        ser = PackageSerializer(instance, data, partial=True)
-        ser.is_valid(raise_exception=True)
-        ser.save()
-        for attachment in attachments:
-            attachment.update({'package': instance.id})
-            s = PackageAttachmentSerializer(data=attachment)
-            s.is_valid(raise_exception=True)
-            s.save()
-
-    SystemVariable.objects.all().update(is_scraping_running=False)
+    try:
+        for package_name in package_names:
+            data = scraper.scrap_detail(package_name)
+            attachments = data.get('attachments', [])
+            instance = Package.objects.get(package_name=package_name)
+            ser = PackageSerializer(instance, data, partial=True)
+            ser.is_valid(raise_exception=True)
+            ser.save()
+            for attachment in attachments:
+                attachment.update({'package': instance.id})
+                s = PackageAttachmentSerializer(data=attachment)
+                s.is_valid(raise_exception=True)
+                s.save()
+        SystemVariable.objects.all().update(is_scraping_running=False, error_while_scraping="")
+    except Exception as e:
+        SystemVariable.objects.all().update(is_scraping_running=False, error_while_scraping=str(e))
 
 
 @celery_app.task(name="scrap_listing_task", queue="default_queue")
@@ -35,7 +37,6 @@ def scrap_listing_task():
     refreshed_at = data['refreshed_at']
     found_packages = []
     new_packages = []
-    SystemVariable.objects.all().update(is_scraping_running=True)
     for item in data['packages']:
         found_packages.append(item['package_name'])
         if Package.objects.filter(package_name=item['package_name']).exists():
