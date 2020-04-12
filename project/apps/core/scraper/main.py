@@ -79,6 +79,7 @@ class AppScraper(object):
         except Exception as e:
             app_logger.exception(e)
         app_logger.info(data)
+        self.browser.quit()
         return data
 
     def scrap_list(self):
@@ -107,7 +108,5 @@ class AppScraper(object):
                                 'package_name': package_name
                             })
         app_logger.info(data)
-        return data
-
-    def __exit__(self, exc_type, exc_val, exc_tb):
         self.browser.quit()
+        return data
