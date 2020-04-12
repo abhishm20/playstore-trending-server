@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals, absolute_import
 
+from django.db.models import Q
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -22,7 +23,7 @@ class PackageList(APIView):
             for att in instance.attachments.filter():
                 data['attachments'].append(PackageAttachmentSerializer(att).data)
         else:
-            queryset = Package.objects.all()
+            queryset = Package.objects.filter(~Q(app_name__isnull=True) & ~Q(app_name=''))
             data = PackageSerializer(queryset, many=True).data
         return Response(data)
 
