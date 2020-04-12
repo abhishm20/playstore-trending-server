@@ -3,6 +3,7 @@ import os
 import pathlib
 
 from selenium import webdriver
+from pyvirtualdisplay import Display
 
 from core import utility
 from settings import RESOURCE_DIR, app_logger
@@ -15,6 +16,8 @@ CONFIG_DATA = json.load(open(CONFIG_FILE, 'r'))
 
 class AppScraper(object):
     def __init__(self):
+        self.display = Display(visible=0, size=(1300, 1080))
+        self.display.start()
         options = Options()
         options.headless = True
         if DEBUG:
