@@ -7,7 +7,7 @@ Django==3.0.4
 django-cors-headers==3.2.1
 django-extensions==2.2.9
 django-mysql==3.3.0
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 dnspython==1.16.0
 docutils==0.15.2
 EasyProcess==0.2.10
