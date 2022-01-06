@@ -2,7 +2,7 @@ amqp==2.5.2
 asgiref==3.2.7
 billiard==3.6.3.0
 botocore==1.15.32
-celery==4.4.2
+celery==5.2.2
 Django==3.0.4
 django-cors-headers==3.2.1
 django-extensions==2.2.9
